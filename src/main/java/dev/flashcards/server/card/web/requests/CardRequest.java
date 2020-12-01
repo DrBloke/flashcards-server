@@ -13,16 +13,24 @@ public class CardRequest implements FlashItemRequest {
 
     public static final String TYPE_NAME = "card";
 
-    private final String content;
+    private final String question;
+    private final String answer;
 
     @JsonCreator
-    public CardRequest(@JsonProperty("content") String content) {
-        this.content = requireNonNull(content);
+    public CardRequest(@JsonProperty("question") String question,
+                       @JsonProperty("answer") String answer) {
+        this.question = requireNonNull(question);
+        this.answer = requireNonNull(answer);
     }
 
-    @JsonGetter("content")
-    public String getContent() {
-        return content;
+    @JsonGetter("question")
+    public String getQuestion() {
+        return question;
+    }
+
+    @JsonGetter("answer")
+    public String getAnswer() {
+        return answer;
     }
 
     @Override
@@ -30,11 +38,12 @@ public class CardRequest implements FlashItemRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CardRequest card = (CardRequest) o;
-        return content.equals(card.content);
+        return question.equals(card.question) && answer.equals(card.answer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(content);
+        return Objects.hash(question, answer);
     }
+
 }

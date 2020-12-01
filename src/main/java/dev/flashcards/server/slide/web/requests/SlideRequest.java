@@ -13,16 +13,16 @@ public class SlideRequest implements FlashItemRequest {
 
     public static final String TYPE_NAME = "slide";
 
-    private final String title;
+    private final String text;
 
     @JsonCreator
-    public SlideRequest(@JsonProperty("title") String title) {
-        this.title = requireNonNull(title);
+    public SlideRequest(@JsonProperty("text") String text) {
+        this.text = requireNonNull(text);
     }
 
-    @JsonGetter("title")
-    public String getTitle() {
-        return title;
+    @JsonGetter("text")
+    public String getText() {
+        return text;
     }
 
     @Override
@@ -30,11 +30,12 @@ public class SlideRequest implements FlashItemRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SlideRequest slide = (SlideRequest) o;
-        return title.equals(slide.title);
+        return text.equals(slide.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title);
+        return Objects.hash(text);
     }
+
 }
