@@ -3,15 +3,13 @@ package dev.flashcards.server.card.web.requests;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import dev.flashcards.server.item.web.FlashItemRequest;
+import dev.flashcards.server.item.web.requests.FlashItemRequest;
 
 import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
 
 public class CardRequest implements FlashItemRequest {
-
-    public static final String TYPE_NAME = "card";
 
     private final String question;
     private final String answer;

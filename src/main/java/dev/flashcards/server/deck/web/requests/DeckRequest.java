@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.google.common.collect.ImmutableList;
 import dev.flashcards.server.card.web.requests.CardRequest;
-import dev.flashcards.server.item.web.FlashItemRequest;
+import dev.flashcards.server.item.web.requests.FlashItemRequest;
 
 import java.util.List;
 import java.util.Objects;

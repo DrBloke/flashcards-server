@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import dev.flashcards.server.card.web.requests.CardRequest;
 import dev.flashcards.server.deck.web.DeckTypesRegisterBean;
-import dev.flashcards.server.item.web.FlashItemRequest;
+import dev.flashcards.server.item.web.requests.FlashItemRequest;
 import dev.flashcards.server.slide.web.requests.SlideRequest;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

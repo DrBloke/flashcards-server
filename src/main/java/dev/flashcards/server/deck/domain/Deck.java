@@ -2,7 +2,6 @@ package dev.flashcards.server.deck.domain;
 
 import com.google.common.collect.ImmutableList;
 import dev.flashcards.server.item.domain.FlashItem;
-import dev.flashcards.server.item.web.FlashItemRequest;
 
 import java.time.LocalDate;
 import java.util.List;
