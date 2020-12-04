@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import dev.flashcards.server.card.web.requests.CardRequest;
 import dev.flashcards.server.item.web.responses.FlashItemResponse;
 
@@ -86,7 +87,7 @@ public class DeckResponse {
         this.id = builder.id;
         this.title = builder.title;
         this.description = builder.description;
-        this.tags = builder.tags;
+        this.tags = ImmutableSet.copyOf(builder.tags);
         this.creator = builder.creator;
         this.creationDate = builder.creationDate;
         this.items = ImmutableList.copyOf(builder.items);

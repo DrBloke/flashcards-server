@@ -1,7 +1,8 @@
 package dev.flashcards.server.deck.web.repository;
 
-import dev.flashcards.server.deck.domain.Deck;
-import dev.flashcards.server.deck.domain.DeckBuilder;
+import com.google.common.collect.ImmutableList;
+import dev.flashcards.server.deck.Deck;
+import dev.flashcards.server.deck.DeckBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +17,22 @@ public class DeckRepository {
         return nextId.getAndIncrement();
     }
 
-    public void save(Deck deck){
-        final DeckBuilder deckBuilder = new DeckBuilder();
+    public List<Deck> findAll() {
+        return ImmutableList.copyOf(store);
+    }
 
+    public void save(Deck deck) {
+        final DeckBuilder deckBuilder = new DeckBuilder();
         store.add(deck);
+    }
+
+    public void delete(Deck deck) {
+        for (Deck stored : store) {
+            if (stored.equals(deck)) {
+                store.remove(stored);
+                break;
+            }
+        }
     }
 
 }
