@@ -17,6 +17,10 @@ public class DeckBuilder {
     LocalDate creationDate;
     List<FlashItem> items;
 
+    public DeckBuilder() {
+
+    }
+
     public DeckBuilder setId(int id) {
         this.id = id;
         return this;

@@ -87,10 +87,14 @@ public class DeckResponse {
         this.id = builder.id;
         this.title = builder.title;
         this.description = builder.description;
-        this.tags = ImmutableSet.copyOf(builder.tags);
+        this.tags = makeTags(builder);
         this.creator = builder.creator;
         this.creationDate = builder.creationDate;
         this.items = ImmutableList.copyOf(builder.items);
+    }
+
+    private ImmutableSet<String> makeTags(Builder builder) {
+        return builder.tags == null ? null : ImmutableSet.copyOf(builder.tags);
     }
 
     public static Builder builder() {

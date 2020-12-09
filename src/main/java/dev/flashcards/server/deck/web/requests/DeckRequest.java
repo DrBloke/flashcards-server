@@ -1,6 +1,8 @@
 package dev.flashcards.server.deck.web.requests;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.google.common.collect.ImmutableList;
@@ -66,7 +68,7 @@ public class DeckRequest {
         return items;
     }
 
-    private DeckRequest(Builder builder) {
+    DeckRequest(Builder builder) {
         this.title = builder.title;
         this.description = builder.description;
         this.tags = builder.tags;
@@ -81,11 +83,14 @@ public class DeckRequest {
     @JsonPOJOBuilder(withPrefix = "set")
     public static class Builder {
 
-        private String title;
-        private String description;
-        private Set<String> tags;
-        private String creator;
-        private List<FlashItemRequest> items;
+        String title;
+        String description;
+        Set<String> tags;
+        String creator;
+        List<FlashItemRequest> items;
+
+        private Builder(){
+        }
 
         public Builder setTitle(String title) {
             this.title = title;
